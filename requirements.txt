@@ -1,0 +1,11 @@
+langgraph
+langgraph-checkpoint-sqlite
+langchain-core
+langchain-groq
+mcp[cli]==1.30.0
+fastapi
+uvicorn[standard]
+python-dotenv
+langfuse
+pytest
+httpx
