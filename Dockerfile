@@ -9,7 +9,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
-COPY data ./data
 COPY test_agent.py ./test_agent.py
 
 EXPOSE 8000
