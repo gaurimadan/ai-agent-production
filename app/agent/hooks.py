@@ -11,9 +11,8 @@ def pre_tool_hook(
 ) -> dict[str, Any]:
     """Deterministic validation before an LLM-selected MCP call."""
 
-    # MCP 1.30 returns Tool objects.
     schema_by_name = {
-        tool.name: tool
+        (tool.get("name") if isinstance(tool, dict) else tool.name): tool
         for tool in tool_schemas
     }
 
@@ -36,7 +35,11 @@ def pre_tool_hook(
 
     tool = schema_by_name[tool_name]
 
-    input_schema = getattr(tool, "inputSchema", {}) or {}
+    input_schema = (
+        tool.get("inputSchema", {})
+        if isinstance(tool, dict)
+        else getattr(tool, "inputSchema", {})
+    ) or {}
 
     required = input_schema.get("required", [])
 

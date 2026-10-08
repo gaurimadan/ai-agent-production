@@ -30,7 +30,7 @@ class ApprovalRequest(BaseModel):
 
 @app.on_event("startup")
 async def startup() -> None:
-    await mcp_manager.discover_tools()
+    await mcp_manager.discover_tools_async()
 
 
 @app.get("/")
@@ -51,9 +51,9 @@ def tools():
     return {
         "tools": [
             {
-                "name": tool.name,
-                "description": tool.description,
-                "inputSchema": tool.inputSchema,
+                "name": tool["name"],
+                "description": tool["description"],
+                "inputSchema": tool["inputSchema"],
             }
             for tool in mcp_manager.get_cached_tools()
         ]

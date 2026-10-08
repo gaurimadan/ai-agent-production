@@ -2,6 +2,7 @@ langgraph
 langgraph-checkpoint-sqlite
 langchain-core
 langchain-groq
+langchain
 mcp[cli]==1.30.0
 fastapi
 uvicorn[standard]

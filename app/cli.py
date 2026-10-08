@@ -7,7 +7,7 @@ from app.agent.mcp_client import mcp_manager
 
 
 def run():
-    asyncio.run(mcp_manager.discover_tools())
+    asyncio.run(mcp_manager.discover_tools_async())
 
     thread_id = "cli-session"
 
