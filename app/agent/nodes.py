@@ -21,6 +21,7 @@ load_dotenv()
 llm = ChatGroq(
     model=os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"),
     temperature=0,
+    max_tokens=int(os.getenv("GROQ_MAX_TOKENS", "512")),
 )
 
 
